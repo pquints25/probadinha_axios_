@@ -1,6 +1,6 @@
 const fs = require('node:fs');
 const readline = require('node:readline');
-const Producto = require('../models/cliente');
+const Producto = require('../models/producto');
 
 const findAllProductos = async () => {
     const productos = [];

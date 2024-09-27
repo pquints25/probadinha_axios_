@@ -1,6 +1,4 @@
 const express = require('express');
-const findAllClientes = require('../service/clienteService');
-const findAllProductos = require('../service/productoService');
 
 class Server{
     constructor(){
@@ -10,20 +8,8 @@ class Server{
     }
         //definir las rutas
     routes(){
-        this._app.get('/clientes', async (req, res) => {
-            const arregloClientes = await findAllClientes();
-            res.json(arregloClientes);
-        });
-
-        this._app.get('/productos', async (req, res) => {
-            const arregloProductos = await findAllProductos();
-            res.json(arregloProductos);
-        })
-
-        this._app.get('/probando', (req, res) => {
-            res.send('funcionando');
-        });
-
+        this._app.use('/productos', require('../routes/productosRoutes'));
+        this._app.use('/clientes', require('../routes/clientesRoutes'));
     }
 
     listen(){
@@ -33,5 +19,4 @@ class Server{
         });
     }
 }
-
 module.exports = Server;
