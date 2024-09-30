@@ -3,9 +3,16 @@ const express = require('express');
 class Server{
     constructor(){
         this._app = express();
+        this.middlewares();
         this.routes();
+        
+    } //contructor llamara a rutas
 
+    middlewares(){
+        this._app.use(express.json());
     }
+        //llamar
+
         //definir las rutas
     routes(){
         this._app.use('/productos', require('../routes/productosRoutes'));

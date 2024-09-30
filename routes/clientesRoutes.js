@@ -5,12 +5,12 @@ const router = Router();
 
 router.get('/', findAllClientesController);
 
-router.get("/", FindByIdClientesController);
+router.get("/:id", FindByIdClientesController);
 
 router.post("/", insertController)
 
 router.put("/", updateController)
 
-router.delete("/", deleteByIdController)
+router.delete("/:id", deleteByIdController)
 
 module.exports = router;
